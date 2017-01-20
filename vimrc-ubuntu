@@ -111,7 +111,7 @@ try
 catch
 endtry
 
-"colorscheme desert
+colorscheme desert
 set background=dark
 set t_Co=256
 
@@ -121,6 +121,9 @@ if has("gui_running")
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
+    " set background=dark
+else
+    " set background=light
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -273,7 +276,7 @@ vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 " To go to the previous search results do:
 "   <leader>p
 "
-" "map <leader>cc :botright cope<cr>
+map <leader>co :botright cope<cr>
 " map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 " map <leader>n :cn<cr>
 " map <leader>p :cp<cr>
@@ -439,25 +442,29 @@ imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
-" my own plugin
+" my favirate plugin
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'ervandew/supertab'
 Bundle 'shougo/neocomplcache.vim'
 Bundle 'vim-scripts/showmarks'
+Bundle 'vim-scripts/snipmate'
 Bundle 'vim-scripts/marks-browser'
+Bundle 'rking/ag.vim'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'vim-airline/vim-airline'
+
 Bundle 'tpope/vim-fugitive'
 "Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
-Bundle 'vim-airline/vim-airline'
 "Bundle 'Lokaltog/vim-powerline'
 Bundle 'DoxygenToolkit.vim'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/snipmate'
 " Bundle 'vim-scripts/a.vim'
 " Bundle 'vim-scripts/searchcomplete'
 
@@ -470,23 +477,13 @@ Bundle 'vim-scripts/snipmate'
 Bundle 'airblade/vim-rooter'
 " let g:rooter_disable_map = 1
 
-Bundle 'tomasr/molokai'
-let g:molokai_original=1
-
-Bundle 'altercation/vim-colors-solarized'
-let g:solarized_terooolors=256
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-
-Bundle 'scrooloose/syntastic'
+" ##### syntastic
 let g:syntastic_error_symbol='XX'
 let g:syntastic_warning_symbol=">>"
 let g:syntastic_check_on_open=0
 let g:syntastic_enable_highlighting=1
 
 " Bundle 'vim-scripts/AutoComplPop'
-
 " 主要用于C++补全 需要ctags支持
 "Bundle 'vim-scripts/OmniCppComplete'
 
@@ -498,8 +495,8 @@ let g:syntastic_enable_highlighting=1
 " ##### 自动补全单双引号
 Bundle 'Raimondi/delimitMate'
 
-" ##### 快捷键注释
-Bundle 'scrooloose/nerdcommenter'
+
+" ##### 快捷键注释 nerdcommenter
 " <leader>cc 注释选中内容
 " <leader>cu 取消注释
 " <leader>c$ 从当前光标注释到行尾
@@ -512,7 +509,7 @@ Bundle 'terryma/vim-expand-region'
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
-" " ##### 多光标选中编辑
+" ##### 多光标选中编辑
 " Bundle 'terryma/vim-multiple-cursors'
 " let g:multi_cursor_use_default_mapping=0
 " let g:multi_cursor_next_key='<C-n>'
@@ -557,9 +554,7 @@ let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['funky']
 
 
-""""""""""""""""""""""""""""""
-" showmarks & marks-browser setting
-""""""""""""""""""""""""""""""
+" ##### showmarks & marks-browser setting 
 let showmarks_enable = 1
 " Show which marks
 let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -574,3 +569,6 @@ let  marksCloseWhenSelected=1
 
 " ##### neocomplcache 
 let g:neocomplcache_enable_at_startup=1
+let g:neocomplcache_enable_smart_case=1
+let g:neocomplcache_min_syntax_length=3
+let g:NeoComplCache_DisableAutoComplete=1
