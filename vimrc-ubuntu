@@ -23,10 +23,10 @@ let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
-
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
-" command W w !sudo tee % > /dev/null
+command W w !sudo tee % > /dev/null
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -440,25 +440,26 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 " my own plugin
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-fugitive'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
-"Bundle 'mileszs/ack.vim'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdtree'
+Bundle 'majutsushi/tagbar'
+Bundle 'ervandew/supertab'
+Bundle 'shougo/neocomplcache.vim'
+Bundle 'vim-scripts/showmarks'
+Bundle 'vim-scripts/marks-browser'
+Bundle 'tpope/vim-fugitive'
+"Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 Bundle 'vim-airline/vim-airline'
 "Bundle 'Lokaltog/vim-powerline'
-Bundle 'majutsushi/tagbar'
 Bundle 'DoxygenToolkit.vim'
-Bundle 'ervandew/supertab'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/showmarks'
-Bundle 'vim-scripts/searchcomplete'
-Bundle 'vim-scripts/marks-browser'
 Bundle 'vim-scripts/snipmate'
 " Bundle 'vim-scripts/a.vim'
+" Bundle 'vim-scripts/searchcomplete'
 
 " Bundle 'greyblake/vim-smartdict'
 " let g:SmartdictFromLang='en'
@@ -502,6 +503,7 @@ Bundle 'scrooloose/nerdcommenter'
 " <leader>cc 注释选中内容
 " <leader>cu 取消注释
 " <leader>c$ 从当前光标注释到行尾
+" <leader>cA 添加注释到行尾
 let g:NERDSpaceDelims=1
 
 
@@ -568,3 +570,7 @@ let showmarks_hlline_lower = 1
 let showmarks_hlline_upper = 1
 nmap <silent> <leader>mb :MarksBrowser<cr>
 let  marksCloseWhenSelected=1
+
+
+" ##### neocomplcache 
+let g:neocomplcache_enable_at_startup=1
