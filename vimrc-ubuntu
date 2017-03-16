@@ -6,7 +6,6 @@ set number
 " highlight the current line
 set cursorline
 
-
 " Enable filetype plugins
 set nocompatible
 filetype plugin on
@@ -15,6 +14,9 @@ filetype off
 
 " Set to auto read when a file is changed from the outside
 set autoread
+
+" disable Wrapscan, namely to search looply
+" set nowrapscan
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
@@ -101,19 +103,14 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable 
 
-" Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
+" " Enable 256 colors palette in Gnome Terminal
+" if $COLORTERM == 'gnome-terminal'
+    " set t_Co=256
+" endif
 
-try
-    colorscheme desert
-catch
-endtry
-
-colorscheme desert
-set background=dark
 set t_Co=256
+set background=dark
+colorscheme desert
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -399,14 +396,14 @@ let g:tagbar_usearrows=1
 
 " NERDTree
 let NERDTreeWinPos='right'
-nnoremap <silent> <F9> :NERDTreeToggle<cr>
+nnoremap <silent> <F3> :NERDTreeToggle<cr>
 let NERDTreeIgnore = ['.*\.o$','.*\.ko$','.*\.gz$', '.*\.git$','.*\.so$']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 
 set tags=tags
 set tags+=./tags "添加自己当前目录的tags文件"
-set tags+=/usr/src/linux-headers-4.2.0/tags
-set tags+=/home/bing/kernel/linux-source-4.2.0/tags
+" set tags+=/usr/src/linux-headers-4.2.0/tags
+set tags+=/home/bing/kernel/linux-4.4/tags
 
 "-- Cscope setting --
 if has("cscope")
@@ -439,6 +436,9 @@ nmap <C-_>i :cs find i <C-R>=expand("<cfile>")<CR><CR> :copen<CR><CR>
 
 imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
 
+" search the word under the curser in the current file
+nmap <F3> :vimgrep /<C-R><C-W>/ %<CR>
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
@@ -458,7 +458,6 @@ Bundle 'vim-scripts/marks-browser'
 Bundle 'rking/ag.vim'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'vim-airline/vim-airline'
-
 Bundle 'tpope/vim-fugitive'
 "Bundle 'mileszs/ack.vim'
 "Bundle 'Lokaltog/vim-powerline'
@@ -571,4 +570,4 @@ let  marksCloseWhenSelected=1
 let g:neocomplcache_enable_at_startup=1
 let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_min_syntax_length=3
-let g:NeoComplCache_DisableAutoComplete=1
+let g:neocomplcache_disableautocomplete=1
