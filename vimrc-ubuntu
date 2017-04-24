@@ -396,7 +396,7 @@ let g:tagbar_usearrows=1
 
 " NERDTree
 let NERDTreeWinPos='right'
-nnoremap <silent> <F3> :NERDTreeToggle<cr>
+nnoremap <silent> <F9> :NERDTreeToggle<cr>
 let NERDTreeIgnore = ['.*\.o$','.*\.ko$','.*\.gz$', '.*\.git$','.*\.so$']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 
@@ -459,6 +459,7 @@ Bundle 'rking/ag.vim'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'vim-airline/vim-airline'
 Bundle 'tpope/vim-fugitive'
+Bundle 'fholgado/minibufexpl.vim'
 "Bundle 'mileszs/ack.vim'
 "Bundle 'Lokaltog/vim-powerline'
 Bundle 'DoxygenToolkit.vim'
@@ -520,6 +521,9 @@ vmap V <Plug>(expand_region_shrink)
 " ##### golang development
 Bundle 'fatih/vim-go'
 Bundle 'farazdagi/vim-go-ide'
+" Bundle 'jstemmer/gotags'
+Bundle 'nsf/gocode'
+Bundle 'dgryski/vim-godef'
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
@@ -571,3 +575,6 @@ let g:neocomplcache_enable_at_startup=1
 let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_min_syntax_length=3
 let g:neocomplcache_disableautocomplete=1
+
+" ##### minibufexpl #####
+let gminiBufExplMapCTabSwitchBufs = 1
