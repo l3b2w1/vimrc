@@ -25,6 +25,7 @@ let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
+
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
@@ -103,14 +104,17 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable 
 
-" " Enable 256 colors palette in Gnome Terminal
-" if $COLORTERM == 'gnome-terminal'
-    " set t_Co=256
-" endif
+" Enable 256 colors palette in Gnome Terminal
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
 
-set t_Co=256
+try
+    colorscheme desert
+catch
+endtry
+
 set background=dark
-colorscheme desert
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -451,7 +455,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'ervandew/supertab'
-Bundle 'shougo/neocomplcache.vim'
+" Bundle 'shougo/neocomplcache.vim'
 Bundle 'vim-scripts/showmarks'
 Bundle 'vim-scripts/snipmate'
 Bundle 'vim-scripts/marks-browser'
@@ -571,10 +575,22 @@ let  marksCloseWhenSelected=1
 
 
 " ##### neocomplcache 
-let g:neocomplcache_enable_at_startup=1
-let g:neocomplcache_enable_smart_case=1
-let g:neocomplcache_min_syntax_length=3
-let g:neocomplcache_disableautocomplete=1
+" let g:neocomplcache_enable_at_startup=1
+" let g:neocomplcache_enable_smart_case=1
+" let g:neocomplcache_min_syntax_length=3
+" let g:neocomplcache_disableautocomplete=1
 
 " ##### minibufexpl #####
-let gminiBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+
+" " ##### ident #####
+" "
+" let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_auto_colors = 0
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+" hi IndentGuidesOdd  ctermbg=black
+" hi IndentGuidesEven ctermbg=darkgrey
+
+ab pk printk("[%s %d][wbl]\n", __func__, __LINE__);
+ab pf printf("[%s %d][wbl]\n", __func__, __LINE__);
