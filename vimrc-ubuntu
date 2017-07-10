@@ -429,14 +429,14 @@ endif
 map <F4> :cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>
 imap <F4> <ESC>:cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>
 " 将:cs find c等Cscope查找命令映射为<C-_>c等快捷键（按法是先按Ctrl+Shift+-, 然后很快再按下c）
-nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR> :copen<CR><CR>
+nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR><CR>
 nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR> :copen<CR><CR>
-nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR> :copen<CR><CR>
-nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR> :copen<CR><CR>
-nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR> :copen<CR><CR>
+nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR><CR>
+nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR><CR>
+nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR><CR>
+nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR><CR>
 nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-_>i :cs find i <C-R>=expand("<cfile>")<CR><CR> :copen<CR><CR>
+nmap <C-_>i :cs find i <C-R>=expand("<cfile>")<CR><CR>:copen<CR><CR>
 
 imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
 
@@ -592,5 +592,5 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 " hi IndentGuidesOdd  ctermbg=black
 " hi IndentGuidesEven ctermbg=darkgrey
 
-ab pk printk("[%s %d][wbl]\n", __func__, __LINE__);
-ab pf printf("[%s %d][wbl]\n", __func__, __LINE__);
+ab pk printk("[%s %d]\n", __func__, __LINE__);
+ab pf printf("[%s %d]\n", __func__, __LINE__);
