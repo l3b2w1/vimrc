@@ -200,8 +200,6 @@ map <leader>bd :Bclose<cr>:tabclose<cr>gT
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
 
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
@@ -210,15 +208,14 @@ map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
 map <leader>tt :tabnext<cr>
 
-" mapping for managing copen items
-map <leader>j :cp<cr>
-map <leader>k :cn<cr>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
+ab pf printf("[%s %d]\n", __func__, __LINE__);
+ab pk printk("[%s %d]\n", __func__, __LINE__);
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
@@ -383,7 +380,12 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => bing added the following stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
+
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
 nnoremap ; :
 
 "map <F2> :Tlist<CR>
