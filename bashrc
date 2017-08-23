@@ -101,6 +101,7 @@ alias rr='reset'
 alias sss='ctags -R;cscope -Rbkq'
 alias ge='gsettings set org.pantheon.terminal.settings natural-copy-paste true'
 alias gd='gsettings set org.pantheon.terminal.settings natural-copy-paste false'
+alias ma='tmux attach || { (while ! tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh; do sleep 0.2; done)& tmux ; }'
 
 export LD_LIBRARY_PATH=/usr/local/lib
 export OSG_FILE_PATH=/home/linux/osg/OpenSceneGraph-Data-3.0.0
@@ -137,3 +138,7 @@ fi
 export LD_LIBRARY_PATH=/usr/local/lib
 export LIBDIR=/usr/local/lib
 export LD_RUN_PATH=/usr/local/lib
+
+export GTK_IM_MODULE=fcitx    
+export QT_IM_MODULE=fcitx    
+export XMODIFIERS="@im=fcitx" 
