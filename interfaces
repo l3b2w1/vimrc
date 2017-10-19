@@ -16,3 +16,8 @@ auto br0:1
 iface br0:1 inet static
     address 192.168.1.217
     netmask 255.255.255.0
+
+auto br0:2
+iface br0:2 inet static
+    address 169.254.217.217
+    netmask 255.255.0.0
