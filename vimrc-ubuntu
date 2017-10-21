@@ -36,7 +36,7 @@ command W w !sudo tee % > /dev/null
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
+set so=3
 
 " Avoid garbled characters in Chinese language windows OS
 let $LANG='en' 
@@ -258,6 +258,16 @@ map 0 ^
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " When you press gv you Ag after the selected text
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
+" The Silver Searcher, Use ag over grep
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+endif
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Open Ag and put the cursor in the right position
 " map <leader>g :Ag 
@@ -390,6 +400,11 @@ nnoremap <silent> ]B :blast<CR>
 nnoremap <silent> [c :cprevious<CR>
 nnoremap <silent> ]c :cnext<CR>
 
+nnoremap <silent> [t :tabprevious<CR>
+nnoremap <silent> ]t :tabnext<CR>
+nnoremap <silent> [T :tabfirst<CR>
+nnoremap <silent> ]T :tablast<CR>
+
 nnoremap ; :
 
 "map <F2> :Tlist<CR>
@@ -435,8 +450,8 @@ if has("cscope")
     set csverb
 endif
 
-map <F4> :cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>
-imap <F4> <ESC>:cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>
+" map <F4> :cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>
+" imap <F4> <ESC>:cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>
 " 将:cs find c等Cscope查找命令映射为<C-_>c等快捷键（按法是先按Ctrl+Shift+-, 然后很快再按下c）
 nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR><CR>
 nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
@@ -450,7 +465,7 @@ nmap <C-_>i :cs find i <C-R>=expand("<cfile>")<CR><CR>:copen<CR><CR>
 imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
 
 " search the word under the curser in the current file
-nmap <F3> :vimgrep /<C-R><C-W>/ %<CR>
+nmap <F3> :vimgrep /<C-R><C-W>/ %<CR><CR>:copen<CR><CR>
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
