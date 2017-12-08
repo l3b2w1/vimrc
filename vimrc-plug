@@ -399,13 +399,14 @@ function! VisualSelection(direction, extra_filter) range
     let @" = l:saved_reg
 endfunction
 
-"---------------- vim-plug manager -------------------
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-plug manager
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-" search function quickly
+" search text quickly
 Plug 'rking/ag.vim'
-Plug 'mileszs/ack.vim'
+
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 
@@ -429,10 +430,15 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'fholgado/minibufexpl.vim'
 
 Plug 'junegunn/vim-easy-align'
+
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+
+" vim editting status
 Plug 'vim-airline/vim-airline'
+
 Plug 'vim-scripts/marks-browser'
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -442,26 +448,37 @@ Plug 'flazz/vim-colorschemes'
 " 自动补全单双引号
 Plug 'Raimondi/delimitMate' 
 
+Plug 'bronson/vim-trailing-whitespace'
+
+" modify multiple files concurrently
+Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 
-"Plug 'Lokaltog/vim-powerline'
+Plug 'genoma/vim-less'
+Plug 'marijnh/tern_for_vim'
 "Plug 'nathanaelkane/vim-indent-guides'
-"Plug 'DoxygenToolkit.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " =>  ----------- plugins configurations begin ---------------
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ack.vim
-map <c-u> :Ack!<space>
-let g:ackhighlight = 1
-let g:ack_qhandler = "botright copen 10"
-let g:ack_autoclose = 1
-let g:ack_use_cword_for_empty_search = 1
+
+" Ag The Silver Searcher
 if executable('ag')
-      let g:ackprg = 'ag --vimgrep'
-      "let g:ackprg = 'ag --nogroup --nocolor --column'
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor\ --column
+
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
 endif
+nnoremap \ :Ag<SPACE>
+noremap <leader>a :Ag! "<cword>"<cr>%
+"nnoremap K :Ag! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 
 " 快捷键注释 nerdcommenter
@@ -534,6 +551,9 @@ nnoremap ; :
 
 ab pk printk("[%s %d]\n", __func__, __LINE__);
 ab pf printf("[%s %d]\n", __func__, __LINE__);
+
+" Generate ctags under the current directory
+"nmap<leader>R :!ctags -R<CR>
 
 " Open Ag and put the cursor in the right position
 "map <leader>g :cs find g 
