@@ -2,6 +2,7 @@
 auto lo
 iface lo inet loopback
 
+auto wlan0
 auto eth0
 auto br0
 iface br0 inet static
@@ -20,4 +21,9 @@ iface br0:1 inet static
 auto br0:2
 iface br0:2 inet static
     address 169.254.217.217
+    netmask 255.255.0.0
+
+auto br0:3
+iface br0:3 inet static
+    address 10.255.217.217
     netmask 255.255.0.0
