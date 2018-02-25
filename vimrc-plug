@@ -302,6 +302,7 @@ if has("mac") || has("macunix")
 endif
 
 " Delete trailing white space on save, useful for some filetypes ;)
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 fun! CleanExtraSpaces()
     let save_cursor = getpos(".")
     let old_query = getreg('/')
