@@ -3,7 +3,7 @@
 sudo apt-get install git openssl vim minicom rdesktop remmina firefox \
     wireshark stardict ctags cscope tftpd-hpa tree curlftpfs meld iperf zathura \
     bridge-utils uml-utilities \
-    automake pkg-config libevent-dev libncurses5 libncurses5-dev build-essential \
+    automake pkg-config libevent-dev libncurses5 libncurses5-dev build-essential libssl-dev \
     iftop conky filezilla gnome-calculator \
     wine
 
