@@ -155,7 +155,9 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme desert
+    "colorscheme desert
+    " better for elementaryOS vim
+    colorscheme CodeFactoryv3
 catch
 endtry
 
@@ -612,7 +614,7 @@ highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=N
 set cursorcolumn
 highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 
-" compile and execute 
+" compile and execute
 func C()
     exec "!clear && gcc % && ./a.out"
 endfunc
