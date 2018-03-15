@@ -610,9 +610,9 @@ nmap <C-_>i :cs find i <C-R>=expand("<cfile>")<CR><CR>:copen<CR><CR>
 
 " highlight the current line
 set cursorline
-highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+highlight CursorLine   cterm=NONE ctermbg=black ctermfg=NONE guibg=NONE guifg=NONE
 set cursorcolumn
-highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+highlight CursorColumn cterm=NONE ctermbg=black ctermfg=NONE guibg=NONE guifg=NONE
 
 " compile and execute
 func C()

@@ -2,7 +2,7 @@
 auto lo
 iface lo inet loopback
 
-auto wlan0
+#auto wlan0
 auto eth0
 auto br0
 iface br0 inet static

@@ -2,13 +2,15 @@
 
 sudo apt-get install git openssl vim minicom rdesktop remmina firefox \
     wireshark stardict ctags cscope tftpd-hpa tree curlftpfs meld iperf zathura \
+    ssh doxygen \
     bridge-utils uml-utilities \
     automake pkg-config libevent-dev libncurses5 libncurses5-dev build-essential libssl-dev \
     iftop conky filezilla gnome-calculator \
     wine
 
 sudo apt-get update
-sudo apt-get install python-pip python-setuptools m2crypto
+sudo apt-get install python-pip3 python-pip python-setuptools m2crypto
+sudo pip install --upgrade pip
 sudo pip install shadowsocks
 
 sudo apt-get install proxychains
