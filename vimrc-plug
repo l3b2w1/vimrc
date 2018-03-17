@@ -304,7 +304,7 @@ if has("mac") || has("macunix")
 endif
 
 " Delete trailing white space on save, useful for some filetypes ;)
-nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
 fun! CleanExtraSpaces()
     let save_cursor = getpos(".")
     let old_query = getreg('/')
@@ -429,6 +429,8 @@ Plug 'Lokaltog/vim-easymotion'
 " navigator between vim and tmux
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'ntpeters/vim-better-whitespace'
+
 " buf manager
 Plug 'fholgado/minibufexpl.vim'
 
@@ -451,7 +453,7 @@ Plug 'flazz/vim-colorschemes'
 " 自动补全单双引号
 Plug 'Raimondi/delimitMate'
 
-Plug 'bronson/vim-trailing-whitespace'
+
 
 " modify multiple files concurrently
 Plug 'dyng/ctrlsf.vim'
@@ -544,6 +546,9 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
+""""""""""""  trailing whitespace """"""""""""""""""
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => bing added the following stuff begin
