@@ -453,20 +453,19 @@ Plug 'flazz/vim-colorschemes'
 " 自动补全单双引号
 Plug 'Raimondi/delimitMate'
 
-
-
 " modify multiple files concurrently
 Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 
 Plug 'terryma/vim-expand-region'
 
-Plug 'genoma/vim-less'
-Plug 'marijnh/tern_for_vim'
-"Plug 'nathanaelkane/vim-indent-guides'
+" visually displaying indent levels in Vim
+Plug 'nathanaelkane/vim-indent-guides'
+
 Plug 'vim-scripts/DoxygenToolkit.vim'
 
 Plug 'Valloric/YouCompleteMe'
+" Generate ycm conf for big project easily
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 call plug#end()
