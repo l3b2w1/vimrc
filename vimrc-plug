@@ -431,9 +431,6 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'ntpeters/vim-better-whitespace'
 
-" buf manager
-Plug 'fholgado/minibufexpl.vim'
-
 Plug 'junegunn/vim-easy-align'
 
 Plug 'tpope/vim-surround'
@@ -473,6 +470,12 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " =>  ----------- plugins configurations begin ---------------
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" airline
+"let g:airline_theme="luna"
+"let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
 
 "" expand region
 vmap v <Plug>(expand_region_expand)
