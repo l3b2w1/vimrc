@@ -459,6 +459,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 
+Plug 'terryma/vim-expand-region'
+
 Plug 'genoma/vim-less'
 Plug 'marijnh/tern_for_vim'
 "Plug 'nathanaelkane/vim-indent-guides'
@@ -473,19 +475,15 @@ call plug#end()
 " =>  ----------- plugins configurations begin ---------------
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"" expand region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
 """"""""""""""""" vim-easy-align """""""""""""""""
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
-
-""""""""""""""""" vim-multiple-cursors """""""""""""""""""""""
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
 
 " Ag The Silver Searcher
 if executable('ag')
