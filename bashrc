@@ -63,15 +63,6 @@ else
 fi
 unset color_prompt force_color_prompt
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -102,7 +93,7 @@ alias sss='ctags -R;cscope -Rbkq'
 alias ge='gsettings set org.pantheon.terminal.settings natural-copy-paste true'
 alias gd='gsettings set org.pantheon.terminal.settings natural-copy-paste false'
 alias ma='tmux attach || { (while ! tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh; do sleep 0.2; done)& tmux ; }'
-
+alias genycm='~/.vim/plugged/YCM-Generator/config_gen.py .'
 export LD_LIBRARY_PATH=/usr/local/lib
 export OSG_FILE_PATH=/home/linux/osg/OpenSceneGraph-Data-3.0.0
 export CSCOPE_DB=/home/linux
@@ -193,3 +184,4 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
