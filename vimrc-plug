@@ -72,7 +72,7 @@ command W w !sudo tee % > /dev/null
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
+set so=3
 
 " Avoid garbled characters in Chinese language windows OS
 let $LANG='en'
@@ -451,7 +451,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'Raimondi/delimitMate'
 
 " modify multiple files concurrently
-Plug 'dyng/ctrlsf.vim'
+"Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 
 Plug 'terryma/vim-expand-region'
@@ -471,13 +471,25 @@ call plug#end()
 " =>  ----------- plugins configurations begin ---------------
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" airline
+""""""""""""""""""""""" syntastic """"""""""""""""""""""""""
+let g:syntastic_error_symbol='>>'
+let g:syntastic_warning_symbol='>'
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_enable_highlighting=1
+let g:syntastic_enable_c_checker=1
+let g:syntastic_c_checkers=['splint', 'gcc', 'make']
+let g:syntastic_enable_cpp_checker=1
+let g:syntastic_cpp_checkers=['cppcheck', 'gcc', 'make']
+
+
+""""""""""""""""""""" airline """""""""""""""""""""""""""
 "let g:airline_theme="luna"
 "let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
-"" expand region
+"""""""""""""""""""""" expand region """"""""""""""""""""""
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
@@ -583,6 +595,11 @@ let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_cache_omnifunc=0
 "" complete syntax keywords
 let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_show_diagnostics_ui=0
+let g:ycm_collect_identifiers_from_tags_files=1
+let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_semantic_triggers={}
+let g:ycm_semantic_triggers.c=['->', '.', ' ', '(', '[', '&']'])']
 
 
 
