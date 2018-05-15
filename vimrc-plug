@@ -265,7 +265,7 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Specify the behavior when switching between buffers
 try
-  set switchbuf=useopen,usetab,newtab
+  set switchbuf=useopen,usetab
   set stal=2
 catch
 endtry
@@ -647,7 +647,7 @@ if has("cscope")
     set csprg=/usr/bin/cscope " 指定用来执行cscope的命令
     set csto=0 " 设置cstag命令查找次序：0先找cscope数据库再找标签文件；1先找标签文件再找cscope数据库
     set cst " 同时搜索cscope数据库和标签文件
-    set cscopequickfix=s-,g-,c-,d-,i-,t-,e- " 使用QuickFix窗口来显示cscope查找结果
+    set cscopequickfix=s-,c-,d-,i-,t-,e- " 使用QuickFix窗口来显示cscope查找结果
     set nocsverb
     cs add ~/cscope.out /home/bing/kernel/linux-source-4.12.2/
 
@@ -657,8 +657,6 @@ if has("cscope")
         cs add $CSCOPE_DB
     endif
     set csverb
-    " quickfix commands jump to the target buffer where it is displayed
-    set switchbuf=useopen,usetab
 endif
 
 map <F4> :cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>
