@@ -602,6 +602,8 @@ let g:ycm_semantic_triggers={
             \ 'c' : ['->', '.','re![_a-zA-z0-9]'],
             \ 'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
             \ }
+" height of autocompletation popup window
+set pumheight=10
 
 
 
