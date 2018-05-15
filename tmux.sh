@@ -1,6 +1,8 @@
-#!/bin/zsh
+#!/bin/bash
 
-SESSIONNAME="kernel"
+echo $1
+
+SESSIONNAME=$1
 tmux has-session -t $SESSIONNAME &> /dev/null
 
 if [ $? != 0 ]
