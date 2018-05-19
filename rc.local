@@ -12,5 +12,5 @@
 # By default this script does nothing.
 
 sudo sh /home/linux/shadowsocks/shadowsocks.sh
-# sleep 30
+echo -1 > /proc/sys/kernel/perf_event_paranoid
 exit 0
