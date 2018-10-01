@@ -425,6 +425,7 @@ Plug 'ervandew/supertab'
 
 " move on the fly
 Plug 'Lokaltog/vim-easymotion'
+Plug 'vim-scripts/ShowMarks'
 
 " navigator between vim and tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -466,6 +467,8 @@ Plug 'Valloric/YouCompleteMe'
 " Generate ycm conf for big project easily
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
+Plug 'airblade/vim-rooter'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -485,7 +488,7 @@ let g:syntastic_cpp_checkers=['cppcheck', 'gcc', 'make']
 
 
 """"""""""""""""""""" airline """""""""""""""""""""""""""
-let g:airline_theme="simple"
+let g:airline_theme="dark"
 "let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
@@ -512,7 +515,10 @@ if executable('ag')
     let g:ctrlp_use_caching = 0
 endif
 nnoremap \ :Ag<SPACE>
+" search current directory deeply
 nnoremap gr :Ag <cword> *<cr>
+" search current file only
+nnoremap gc :Ag <cword> %<cr>
 
 
 " 快捷键注释 nerdcommenter
@@ -529,7 +535,7 @@ let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
             \ 'file': '\v\.(exe|ko|mod.c|tags|order|ko|o|out|so|jpg|png|jpeg|dll|zip|tar|tar.gz|pyc)$\|\tags$',
             \ }
-let g:ctrlp_working_path_mode='0'
+let g:ctrlp_working_path_mode='ra'
 let g:ctrlp_match_window_bottom=1
 let g:ctrlp_max_height=15
 let g:ctrlp_match_window_reversed=0
@@ -567,7 +573,12 @@ let showmarks_ignore_type = "hqm"
 let showmarks_hlline_lower = 1
 let showmarks_hlline_upper = 1
 let  marksCloseWhenSelected=1
+
 nmap <silent> <leader>mb :MarksBrowser<cr>
+
+hi ShowMarksHLl ctermbg=none  ctermfg=none guibg=none guifg=none
+hi ShowMarksHLu ctermbg=none  ctermfg=none guibg=none guifg=none
+
 
 " 多光标选中编辑
 let g:multi_cursor_use_default_mapping=0
