@@ -281,7 +281,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+set statusline=\ %{HasPaste()}%f%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -576,8 +576,8 @@ let  marksCloseWhenSelected=1
 
 nmap <silent> <leader>mb :MarksBrowser<cr>
 
-hi ShowMarksHLl ctermbg=none  ctermfg=none guibg=none guifg=none
-hi ShowMarksHLu ctermbg=none  ctermfg=none guibg=none guifg=none
+hi ShowMarksHLl ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+hi ShowMarksHLu ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 
 
 " 多光标选中编辑
