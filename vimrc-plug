@@ -281,7 +281,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%f%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+set statusline=\ %{HasPaste()}FN:\ %f%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -438,8 +438,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 
 " vim editting status
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 
 Plug 'vim-scripts/marks-browser'
 
@@ -526,6 +526,7 @@ nnoremap gc :Ag <cword> %<cr>
 " <leader>cu 取消注释
 " <leader>c$ 从当前光标注释到行尾
 " <leader>cA 添加注释到行尾
+let g:NERDSpaceDelims=1 "add a whitespace
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
