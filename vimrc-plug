@@ -444,6 +444,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/marks-browser'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
@@ -474,6 +475,10 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " =>  ----------- plugins configurations begin ---------------
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""" fzf """"""""""""""""""""""""""
+nnoremap <silent> <leader>z :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 
 """"""""""""""""""""""" syntastic """"""""""""""""""""""""""
 let g:syntastic_error_symbol='>>'
